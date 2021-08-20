@@ -1,0 +1,29 @@
+// Poller+One
+
+.homepage {
+    font-family: "Poller One";
+    height: 100vh;
+    width: 100vw;
+    border: solid 1px gold;
+    display: flex; 
+    flex-direction: column;
+    img {
+        background-size: cover;
+        height: 100vh;
+        z-index: -1;
+        opacity: 60%;
+    }
+    .footer {
+        margin-top: -80%;
+        color: black;
+        mix-blend-mode: lighten;
+        button {
+            border: solid white 1px; 
+            background-color: (0, 0, 0, 0.5);
+            font-weight: bolder;
+            mix-blend-mode: multiply;
+            padding: 2%;
+        }
+
+    }
+}

@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import soldier from './assets/soldier.glb'
-import obi from './assets/r2d2.glb'
+import obi from './assets/r5d4.glb'
 import React, {useEffect, useState} from 'react'; 
 import Character from './components/character/character.component'
+import Homepage from './pages/homepage/homepage.component';
+import {Route, Switch} from 'react-router-dom'; 
+import Galaxy from './pages/galaxy/galaxy.component'; 
+
 
 function App() {
   const [data, setData] = useState(); 
@@ -15,18 +18,21 @@ function App() {
     .catch(err => console.log(err))
   }
   useEffect(() =>  {
-    apiRequest(); 
+    // apiRequest(); 
   }, [])
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Star Wars</h1>
-        <model-viewer src={obi} 
+       <Switch>
+         <Route exact path ='/' component={Homepage}></Route>
+         <Route exact path ='/galaxy' component={Galaxy}></Route>
+       </Switch>
+        {/* <model-viewer src={obi} 
         alt="A 3D model of a robot" 
         auto-rotate="" camera-controls="" 
-        background-color="#455A64"></model-viewer>
+        background-color="#455A64"></model-viewer> */}
         {/* <model-viewer src={soldier} alt="A 3D model of a robot" auto-rotate="" camera-controls="" background-color="#455A64"></model-viewer> */}
-        <Character data={data}/>
+        {/* <Character data={data}/> */}
       </header>
     </div>
   );

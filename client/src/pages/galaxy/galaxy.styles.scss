@@ -1,0 +1,27 @@
+.galaxy {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    h1 {
+        color: #e89e10;
+        animation: fadeIn 5s linear;
+        z-index: 1;
+        align-self: center;
+        margin: auto;
+    }
+    img { 
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+    }
+}
+
+@keyframes fadeIn {
+    100% {opacity: 0;}
+    50% {opacity: 0.5;} 
+    0% {opacity: 1;}
+}
+  
+
+
