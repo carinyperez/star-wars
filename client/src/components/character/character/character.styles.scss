@@ -1,0 +1,19 @@
+.characters {
+    padding:5% 0%;
+    model-viewer {
+        width: 100vw;
+        height: 40vh;
+    }
+    .info {
+        background-color: white;
+        color:black; 
+        width: 20vw;
+        margin: auto;
+        margin-top: 2%;
+    }
+
+    p {
+        animation: none;
+    }
+}
+
