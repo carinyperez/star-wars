@@ -8,7 +8,6 @@ import DropDown from '../../components/character/drop-down/drop-down.component';
 const Galaxy = () => { 
     const [image, setImage] = useState(stars);
     const [text, setText]  = useState('');
-    const [value, setValue] = useState(''); 
     const switchImage = () => {
         setText('')
         setImage(galaxy);

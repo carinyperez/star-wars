@@ -3,9 +3,10 @@ import { useState, useEffect} from 'react';
 import Character from '../character/character.component'; 
 
 const DropDown = () =>  {
-    const [value, setValue] = useState(''); 
     const [data, setData] = useState();
     const [char,setChar] = useState('');
+    const [films, setFilms] = useState('');
+    const [value, setValue] = useState('');
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -18,9 +19,26 @@ const DropDown = () =>  {
         .then(response => setData(response.results)) 
         .catch(err => console.log(err))
     }
+
+    const findCharacter = (data, char) => {
+        let result = data.find(el => el.name === char); 
+        return result 
+    }
+
+    const apiRequestFilms = (char) => {
+        let responseArr = [];
+        let value = findCharacter(data, char)
+        for(const el of value.films) {
+          const url = `${el}`; 
+          fetch(url).then(response => response.json()).then(response => responseArr.push(response))
+          .catch(err => console.error(err))
+        }
+        setFilms(responseArr);
+      }
     useEffect(() => {
-        apiRequest(); 
-    }, [])
+        apiRequest();
+        char && apiRequestFilms(char); 
+    }, [char])
 
     return (
         <div className='drop-down'> 
@@ -36,7 +54,7 @@ const DropDown = () =>  {
                 <option value='R5-D4'>R5d4</option>
                 <option value='R2-D2'>R2d2</option>
             </select>
-            <Character data={data} char={char}/>
+            <Character data={data} char={char} films={films}/>
         </div>
     )
 }
