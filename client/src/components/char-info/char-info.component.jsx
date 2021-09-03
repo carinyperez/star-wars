@@ -46,6 +46,7 @@ const CharInfo = ({chars}) => {
                     <p>{`Hair Color: ${list.eye_color}`}</p>
                     <p>{`Birth year: ${list.birth_year}`}</p>
                     <Link to= '/galaxy'>Go back to character list</Link>
+                    <Link to= '/'>Go back to home page</Link>
                 </div>
             }
         </div>
