@@ -27,7 +27,7 @@ const CharInfo = ({chars}) => {
         } else {
             fetch(apiCall).then(response => response.json()).then(response => setList(response))
             .catch(err => console.error(err))
-        }
+        } 
     }
 
     useEffect(() => {
@@ -37,18 +37,22 @@ const CharInfo = ({chars}) => {
     return(
         <div className='char-info'>
             <img src={image} alt='Star-Wars image'></img> 
-            {
+            <div className='char-links'>
+                {
                 list &&
-                <div className='char-links'>
+                    <div>
                     <h1>Character Information</h1>
                     <p>{`Name: ${list.name}`}</p>
                     <p>{`Hair Color: ${list.hair_color}`}</p>
                     <p>{`Hair Color: ${list.eye_color}`}</p>
                     <p>{`Birth year: ${list.birth_year}`}</p>
-                    <Link to= '/galaxy'>Go back to character list</Link>
-                    <Link to= '/'>Go back to home page</Link>
-                </div>
-            }
+                    <div className='char-info-links'> 
+                        <Link to= '/galaxy'>Go back to character list</Link>
+                        <Link to= '/'>Go back to home page</Link>
+                    </div>
+                    </div> 
+                }
+            </div>
         </div>
     )
 }

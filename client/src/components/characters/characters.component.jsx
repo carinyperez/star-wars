@@ -10,7 +10,6 @@ const Characters = ({data, title}) => {
     })
 
     const findChars = (data, title) => {
-        console.log(data); 
         return data.find(el => el.title === title); 
     }
 
