@@ -1,9 +1,9 @@
 import './drop-down.styles.scss'; 
 import { useState, useEffect} from 'react';
-import Character from '../character/character.component'; 
+import Character from '../character/character/character.component'; 
 
 const DropDown = () =>  {
-    const [data, setData] = useState();
+    const [data, setData] = useState('');
     const [char,setChar] = useState('');
     const [films, setFilms] = useState('');
     const [value, setValue] = useState('');
@@ -28,13 +28,13 @@ const DropDown = () =>  {
     const apiRequestFilms = (char) => {
         let responseArr = [];
         let value = findCharacter(data, char)
-        for(const el of value.films) {
-          const url = `${el}`; 
-          fetch(url).then(response => response.json()).then(response => responseArr.push(response))
-          .catch(err => console.error(err))
-        }
-        setFilms(responseArr);
-      }
+            for(const el of value.films) {
+                const url = `${el}`; 
+                fetch(url).then(response => response.json()).then(response => responseArr.push(response))
+                .catch(err => console.error(err))
+              }
+            setFilms(responseArr);
+    }
     useEffect(() => {
         apiRequest();
         char && apiRequestFilms(char); 

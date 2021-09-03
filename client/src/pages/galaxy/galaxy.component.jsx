@@ -3,7 +3,7 @@ import stars from '../../assets/stars.jpeg';
 import './galaxy.styles.scss'; 
 import {useState, useEffect} from 'react';
 import Character from '../../components/character/character/character.component.jsx'; 
-import DropDown from '../../components/character/drop-down/drop-down.component';
+import DropDown from '../../components/drop-down/drop-down.component';
 
 const Galaxy = () => { 
     const [image, setImage] = useState(stars);

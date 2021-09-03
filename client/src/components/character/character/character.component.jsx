@@ -1,12 +1,12 @@
 import './character.styles.scss'; 
 import {useEffect, useState} from 'react'; 
-import e from 'cors';
+import {Link} from 'react-router-dom'; 
 
 const Character = ({data, char, films}) => {
   const [value, setValue] = useState(''); 
   const [newImage, setImage] = useState(''); 
   const [result, setResult] = useState(''); 
-
+  const filmId = 'Attack of the Clones'; 
 
   const findCharacter = (data, char) => {
     let result = data.find(el => el.name === char); 
@@ -37,9 +37,10 @@ const Character = ({data, char, films}) => {
               <p>{`Hair Color: ${value.eye_color}`}</p>
               <p>{`Birth year: ${value.birth_year}`}</p>
               <h2>Films</h2>
-              {
-                  films && films.map(el =>  <p>{el.title}</p>)
-              }
+                {
+                    films && films.map(el => 
+                    <Link to={`/films/${el.title}`} >{el.title}</Link>)
+                }
             </div>
           </div>
         }
