@@ -18,8 +18,8 @@ const Galaxy = () => {
     }, [])
     return (
         <div className='galaxy'>
+             <img className='stars-image' src={image} alt='stars'></img>
             <h1>{text}</h1>
-            <img className='stars-image' src={image} alt='stars'></img>
             {
                 !text && 
                 <div className='select'> 

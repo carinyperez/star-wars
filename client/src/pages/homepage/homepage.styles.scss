@@ -2,11 +2,11 @@
 
 .homepage {
     font-family: "Poller One";
-    border: solid 1px gold;
     display: flex;
     flex-wrap: wrap; 
     position: relative; 
     justify-content: center;
+    font-size: 2em;
     img {
         background-size: cover;
         height: 100vh;
@@ -21,7 +21,7 @@
         color: black;
         mix-blend-mode: lighten;
         z-index: 1;
-        // margin:auto;
+        padding-top:2%;
         button {
             border: solid white 1px; 
             background-color: (0, 0, 0, 0.5);
