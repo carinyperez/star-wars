@@ -20,7 +20,6 @@ const Characters = ({data, title}) => {
     }
     return (
         <div>
-            <h1>Characaters</h1>
             <CharInfo chars={chars}/>
         </div>
     )

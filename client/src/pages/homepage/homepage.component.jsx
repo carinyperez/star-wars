@@ -8,7 +8,7 @@ const Homepage = (props) => {
     }
     return (
         <div className='homepage'>
-            <img src={background} alt='Star wars background'></img>
+            <img src={background} alt='star-wars image'></img>
             <div className='footer'>
                 <h1>STAR WARS</h1> 
                 <p>AN INTERACTIVE GALACTIC EXPERIENCE</p>

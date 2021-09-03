@@ -1,5 +1,4 @@
 .galaxy {
-    height: 100vh;
     width: 100vw;
     display: flex;
     h1, p {
@@ -18,6 +17,8 @@
     }
     .select {
         margin: auto;
+        display: flex; 
+        flex-direction: row;
     }
 }
 

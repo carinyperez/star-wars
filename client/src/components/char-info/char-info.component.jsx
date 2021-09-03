@@ -1,40 +1,33 @@
 import {useEffect, useState} from 'react'; 
 import {useRouteMatch, useHistory} from "react-router-dom";
 import {Link} from 'react-router-dom';
+import './char-info.styles.scss'; 
+import image from '../../assets/background.jpeg';
 
-
-// const hashingFunction = () => {
-//     let character = match.params.chracterId; 
-//     let charSplit = character.split(' '); 
-//     console.log(charSplit)
-// }
-
-// hashingFunction();
-
- 
-// use title to find list of char based on url 
 const CharInfo = ({chars}) => {
     let [list, setList] = useState('');
     let match = useRouteMatch(); 
     let character = match.params.chracterId; 
+
+    let baseUrl = 'https://swapi.dev/api/people';
     const dataList = {
-        'Luke Skywalker': 1, 
-        'Obi-Wan Kenobi': 2, 
-        'C-3PO': 2,
-        'Darth Vader': 4, 
-        'Leia Organa': 5, 
-        'R5-D4': 8, 
-        'R2-D2': 3
+        'Luke Skywalker': `${baseUrl}/1/`, 
+        'Obi-Wan Kenobi': `${baseUrl}/10/`, 
+        'C-3PO': `${baseUrl}/2/`,
+        'Darth Vader': `${baseUrl}/4/`, 
+        'Leia Organa': `${baseUrl}/5/`, 
+        'R5-D4': `${baseUrl}/8/`, 
+        'R2-D2': `${baseUrl}/3/`
     }
-    console.log(character); 
     const getChars = (chars) => {
-        console.log(chars);
-        const slicedData = chars.characters.slice(0,10);
-        const apiCall = slicedData.find(el => 
-        el === `https://swapi.dev/api/people/${dataList[character]}/`)
-        fetch(apiCall).then(response => response.json()).then(response => setList(response))
-        .catch(err => console.error(err))
-    
+        const slicedData = chars.characters.find(el => el == dataList[character]); 
+        const apiCall = dataList[character]; 
+        if(!slicedData) {
+            return undefined
+        } else {
+            fetch(apiCall).then(response => response.json()).then(response => setList(response))
+            .catch(err => console.error(err))
+        }
     }
 
     useEffect(() => {
@@ -42,18 +35,19 @@ const CharInfo = ({chars}) => {
     }, [chars])
 
     return(
-        <div>
-        {
-            list && 
-            <div>
-            <h1>Char Info</h1>
-            <p>{`Name: ${list.name}`}</p>
-            <p>{`Hair Color: ${list.hair_color}`}</p>
-            <p>{`Hair Color: ${list.eye_color}`}</p>
-            <p>{`Birth year: ${list.birth_year}`}</p>
-        </div>
-        }
-        <Link to= '/galaxy'>Go back to character list</Link>
+        <div className='char-info'>
+            <img src={image} alt='Star-Wars image'></img> 
+            {
+                list &&
+                <div className='char-links'>
+                    <h1>Character Information</h1>
+                    <p>{`Name: ${list.name}`}</p>
+                    <p>{`Hair Color: ${list.hair_color}`}</p>
+                    <p>{`Hair Color: ${list.eye_color}`}</p>
+                    <p>{`Birth year: ${list.birth_year}`}</p>
+                    <Link to= '/galaxy'>Go back to character list</Link>
+                </div>
+            }
         </div>
     )
 }

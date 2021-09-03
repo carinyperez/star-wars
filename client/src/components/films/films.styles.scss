@@ -1,0 +1,30 @@
+
+.film-comp {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    position: relative;
+    padding-bottom: 5%;
+    img {
+        background-size: cover;
+        height: 100vh;
+        z-index: -1;
+    }
+    .char-list{
+        position: absolute;
+        z-index: 1;
+        display: flex; 
+        align-items: center;
+        flex-direction: column;
+    }
+    .links {
+        display: flex; 
+        flex-wrap: wrap;
+        a {
+            width: 100vw;
+            padding-bottom: 1%;
+        }
+    }
+
+}
+

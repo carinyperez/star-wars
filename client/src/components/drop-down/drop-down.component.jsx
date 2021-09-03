@@ -14,7 +14,6 @@ const DropDown = () =>  {
     }
     const apiRequest = () => {
         const url = '/api/characters';
-        console.log(url);
         fetch(url).then(response => response.json())
         .then(response => setData(response.results)) 
         .catch(err => console.log(err))
@@ -23,8 +22,6 @@ const DropDown = () =>  {
     const apiRequestFilms = () => {
         let responseMap = new Map(); 
         let responseArr = [];
-        console.log(data);
-        console.log(typeof(data));
         for(let property in data) {
             if(data[property].name === char) {
                 let filmList = data[property].films;

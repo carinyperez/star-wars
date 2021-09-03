@@ -23,7 +23,7 @@ const Galaxy = () => {
             {
                 !text && 
                 <div className='select'> 
-                    <DropDown/>
+                    <DropDown class='drop-down'/>
                 </div>
             }
         </div>

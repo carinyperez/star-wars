@@ -5,7 +5,6 @@ import {useEffect, useState} from 'react';
 const FilmPage = () => {
     return(
         <div>
-            <h1>Film Page</h1>
             <Film></Film>
         </div>
     )
