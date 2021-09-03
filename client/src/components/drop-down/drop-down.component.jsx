@@ -37,7 +37,6 @@ const DropDown = () =>  {
         apiRequest();
         char && apiRequestFilms(); 
     }, [char])
-
     return (
         <div className='drop-down'> 
             <h1>Select a character 

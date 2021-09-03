@@ -1,7 +1,6 @@
 import Characters from "../../components/characters/characters.component";
 import {useRouteMatch, useHistory} from "react-router-dom";
 import {useEffect, useState} from 'react'; 
-import './character.styles.scss'; 
 
 const CharacterPage = () => {
     let history = useHistory(); 

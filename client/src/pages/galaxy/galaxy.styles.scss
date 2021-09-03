@@ -1,6 +1,10 @@
 .galaxy {
     width: 100vw;
+    height: 100vh;
+    flex-wrap: wrap;
     display: flex;
+    position: relative; 
+
     h1, p {
         color: #e89e10;
         animation: fadeIn 5s linear;
@@ -8,17 +12,20 @@
         align-self: center;
         margin: auto;
     }
+    h1 {
+        padding-top: 5%;
+    }
     img { 
         background-size: cover;
         height: 100vh;
         width: 100vw;
-        position: absolute;
         z-index: -1;
     }
     .select {
         margin: auto;
         display: flex; 
         flex-direction: row;
+        position: absolute;
     }
 }
 
