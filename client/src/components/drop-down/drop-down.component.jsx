@@ -20,24 +20,25 @@ const DropDown = () =>  {
         .catch(err => console.log(err))
     }
 
-    const findCharacter = (data, char) => {
-        let result = data.find(el => el.name === char); 
-        return result 
-    }
-
-    const apiRequestFilms = (char) => {
+    const apiRequestFilms = () => {
+        let responseMap = new Map(); 
         let responseArr = [];
-        let value = findCharacter(data, char)
-            for(const el of value.films) {
-                const url = `${el}`; 
-                fetch(url).then(response => response.json()).then(response => responseArr.push(response))
-                .catch(err => console.error(err))
-              }
-            setFilms(responseArr);
+        console.log(data);
+        console.log(typeof(data));
+        for(let property in data) {
+            if(data[property].name === char) {
+                let filmList = data[property].films;
+                for(let el of filmList) {
+                    fetch(el).then(response => response.json()).then(response => responseArr.push(response))
+                    .catch(err => console.error(err))
+                }
+                } 
+                setFilms(responseArr);
+            }
     }
     useEffect(() => {
         apiRequest();
-        char && apiRequestFilms(char); 
+        char && apiRequestFilms(); 
     }, [char])
 
     return (
@@ -54,7 +55,7 @@ const DropDown = () =>  {
                 <option value='R5-D4'>R5d4</option>
                 <option value='R2-D2'>R2d2</option>
             </select>
-            <Character data={data} char={char} films={films}/>
+            {char && <Character data={data} char={char} films={films}/>}
         </div>
     )
 }
